@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 
 module.exports = {
@@ -11,11 +9,11 @@ module.exports = {
   },
   module: {
     rules: [
-    ]
+    ],
   },
   resolve: {
   },
   devtool: 'source-map',
   plugins: [
-  ]
+  ],
 };
