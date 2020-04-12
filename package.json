@@ -5,5 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/jairjy/Racing-RPG.git",
   "author": "Jair Jaramillo <jair.jaramillo@outlook.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+  }
 }
