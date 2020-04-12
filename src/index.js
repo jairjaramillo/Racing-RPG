@@ -1,7 +1,7 @@
 import 'phaser';
 import './style/style.scss';
 import config from './config/config';
-import GameScene from './scenes/gameScene';
+import GameScene from './scenes/GameScene';
 
 // eslint-disable-next-line no-undef
 class Game extends Phaser.Game {
