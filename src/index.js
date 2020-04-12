@@ -5,21 +5,20 @@ var config = {
   width: 800,
   height: 600,
   physics: {
-      default: "arcade",
-      arcade: {
-          gravity: { y: 200 }
-      }
+    default: "arcade",
+    arcade: {
+      gravity: { y: 200 }
+    }
   },
   scene: {
-      preload: preload,
-      create: create
+    preload: preload,
+    create: create
   }
 };
 
 var game = new Phaser.Game(config);
 
-function preload ()
-{
+function preload() {
   this.load.setBaseURL('http://labs.phaser.io');
 
   this.load.image('sky', 'assets/skies/space3.png');
@@ -27,16 +26,15 @@ function preload ()
   this.load.image('red', 'assets/particles/red.png');
 }
 
-function create ()
-{
+function create() {
   this.add.image(400, 300, 'sky');
 
   var particles = this.add.particles('red');
 
   var emitter = particles.createEmitter({
-      speed: 100,
-      scale: { start: 1, end: 0 },
-      blendMode: 'ADD'
+    speed: 100,
+    scale: { start: 1, end: 0 },
+    blendMode: 'ADD'
   });
 
   var logo = this.physics.add.image(400, 100, 'logo');
