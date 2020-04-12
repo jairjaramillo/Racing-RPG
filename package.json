@@ -19,7 +19,9 @@
     "url": "https://github.com/jairjy/Racing-RPG/issues"
   },
   "homepage": "https://github.com/jairjy/Racing-RPG#readme",
-  "dependencies": {},
+  "dependencies": {
+    "phaser": "^3.22.0"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
