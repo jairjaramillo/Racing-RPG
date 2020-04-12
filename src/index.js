@@ -1,4 +1,4 @@
-// import Phaser from 'phaser/dist/phaser-arcade-physics';
+import 'phaser'
 
 var config = {
   type: Phaser.AUTO,

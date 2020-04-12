@@ -4,6 +4,8 @@
   "description": "RPG Racing game for Microverse",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
     "test": "jest"
   },
   "repository": {
