@@ -11,19 +11,23 @@ const eslint = {
   exclude: /node_modules/,
   use: 'eslint-loader',
 };
+
 const babel = {
   test: /\.js$/,
   exclude: /node_modules/,
   use: { loader: 'babel-loader' },
 };
+
 const raw = {
   test: [/\.vert$/, /\.frag$/],
   use: 'raw-loader',
 };
+
 const file = {
   test: /\.(gif|png|jpe?g|svg|xml)$/i,
   use: 'file-loader',
 };
+
 const scss = {
   test: /\.s[ac]ss$/i,
   use: [
@@ -47,7 +51,7 @@ module.exports = {
       WEBGL_RENDERER: JSON.stringify(true),
     }),
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './src/dom/index.html',
     }),
   ],
 };
