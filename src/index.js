@@ -1,3 +1,5 @@
+// import Phaser from 'phaser/dist/phaser-arcade-physics';
+
 var config = {
   type: Phaser.AUTO,
   width: 800,
