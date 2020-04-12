@@ -1,0 +1,9 @@
+{
+  "name": "Racing-RPG",
+  "version": "0.1.0",
+  "description": "Racing RPG for Microverse",
+  "main": "index.js",
+  "repository": "https://github.com/jairjy/Racing-RPG.git",
+  "author": "Jair Jaramillo <jair.jaramillo@outlook.com>",
+  "license": "MIT"
+}
