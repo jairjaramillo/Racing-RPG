@@ -7,5 +7,8 @@
   "author": "Jair Jaramillo <jair.jaramillo@outlook.com>",
   "license": "MIT",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "latest",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "latest"
   }
 }
