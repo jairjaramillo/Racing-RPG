@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import PreloadScreen from '../assets/system/PreloadScreen.png';
 import button from '../assets/system/Button.png';
+import button1 from '../assets/system/Button1.png';
 import logo from '../assets/system/logo.png';
 import bgMusic from '../assets/system/Town2.ogg';
 
@@ -82,12 +83,12 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // load assets needed in our game
     this.load.image('blueButton1', button);
-    this.load.image('blueButton2', button);
+    this.load.image('blueButton2', button1);
     this.load.image('phaserLogo', PreloadScreen);
 
     this.load.image('phaserLogo', logo);
     this.load.image('box', button);
-    this.load.image('checkedBox', button);
+    this.load.image('checkedBox', button1);
     this.load.audio('bgMusic', [bgMusic]);
   }
 
