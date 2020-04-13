@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import config from '../config/config';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -9,6 +10,7 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
+    // Game
     this.gameButton = this.add.sprite(100, 200, 'blueButton1').setInteractive();
     this.centerButton(this.gameButton, 1);
 
@@ -32,7 +34,7 @@ export default class TitleScene extends Phaser.Scene {
   centerButton(gameObject, offset = 0) {
     Phaser.Display.Align.In.Center(
       gameObject,
-      // eslint-disable-next-line no-undef, max-len
+      // eslint-disable-next-line max-len, no-undef
       this.add.zone(config.width / 2, config.height / 2 - offset * 100, config.width, config.height),
     );
   }
