@@ -28,6 +28,11 @@ const file = {
   use: 'file-loader',
 };
 
+const music = {
+  test: /\.(mp3|wav|ogg)$/i,
+  use: 'file-loader',
+};
+
 const scss = {
   test: /\.s[ac]ss$/i,
   use: [
@@ -41,7 +46,7 @@ const scss = {
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
-  module: { rules: [eslint, babel, raw, file, scss] },
+  module: { rules: [eslint, babel, raw, file, music, scss] },
   plugins: [
     new CleanWebpackPlugin({
       root: path.resolve(__dirname, '../'),
