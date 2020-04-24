@@ -1,37 +1,37 @@
-import Phaser from 'phaser'
-import PreloadScreen from '../assets/system/PreloadScreen.png'
-import button from '../assets/system/Button.png'
-import button1 from '../assets/system/Button1.png'
-import logo from '../assets/system/logo.png'
-import bgMusic from '../assets/system/Town2.ogg'
+import Phaser from 'phaser';
+import PreloadScreen from '../assets/system/PreloadScreen.png';
+import button from '../assets/system/Button.png';
+import button1 from '../assets/system/Button1.png';
+import logo from '../assets/system/logo.png';
+import bgMusic from '../assets/system/Town2.ogg';
 
 export default class PreloaderScene extends Phaser.Scene {
-	constructor () {
-		super('Preloader')
+	constructor() {
+		super('Preloader');
 	}
 
-	preload () {
+	preload() {
 		// add logo image
-		this.add.image(400, 200, 'logo')
+		this.add.image(400, 200, 'logo');
 
 		// display progress bar
-		const progressBar = this.add.graphics()
-		const progressBox = this.add.graphics()
-		progressBox.fillStyle(0x222222, 0.8)
-		progressBox.fillRect(240, 270, 320, 50)
+		const progressBar = this.add.graphics();
+		const progressBox = this.add.graphics();
+		progressBox.fillStyle(0x222222, 0.8);
+		progressBox.fillRect(240, 270, 320, 50);
 
-		const { width } = this.cameras.main
-		const { height } = this.cameras.main
+		const { width } = this.cameras.main;
+		const { height } = this.cameras.main;
 		const loadingText = this.make.text({
 			x: width / 2,
 			y: height / 2 - 50,
 			text: 'Loading...',
 			style: {
 				font: '20px monospace',
-				fill: '#ffffff'
-			}
-		})
-		loadingText.setOrigin(0.5, 0.5)
+				fill: '#ffffff',
+			},
+		});
+		loadingText.setOrigin(0.5, 0.5);
 
 		const percentText = this.make.text({
 			x: width / 2,
@@ -39,10 +39,10 @@ export default class PreloaderScene extends Phaser.Scene {
 			text: '0%',
 			style: {
 				font: '18px monospace',
-				fill: '#ffffff'
-			}
-		})
-		percentText.setOrigin(0.5, 0.5)
+				fill: '#ffffff',
+			},
+		});
+		percentText.setOrigin(0.5, 0.5);
 
 		const assetText = this.make.text({
 			x: width / 2,
@@ -50,60 +50,59 @@ export default class PreloaderScene extends Phaser.Scene {
 			text: '',
 			style: {
 				font: '18px monospace',
-				fill: '#ffffff'
-			}
-		})
-		assetText.setOrigin(0.5, 0.5)
+				fill: '#ffffff',
+			},
+		});
+		assetText.setOrigin(0.5, 0.5);
 
 		// update progress bar
 		this.load.on('progress', (value) => {
 			// eslint-disable-next-line radix
-			percentText.setText(`${parseInt(value * 100)}%`)
-			progressBar.clear()
-			progressBar.fillStyle(0xffffff, 1)
-			progressBar.fillRect(250, 280, 300 * value, 30)
-		})
+			percentText.setText(`${parseInt(value * 100)}%`);
+			progressBar.clear();
+			progressBar.fillStyle(0xffffff, 1);
+			progressBar.fillRect(250, 280, 300 * value, 30);
+		});
 
 		// update file progress text
 		this.load.on('fileprogress', (file) => {
-			assetText.setText(`Loading asset: ${file.key}`)
-		})
+			assetText.setText(`Loading asset: ${file.key}`);
+		});
 
 		// remove progress bar when complete
 		this.load.on('complete', () => {
-			progressBar.destroy()
-			progressBox.destroy()
-			loadingText.destroy()
-			percentText.destroy()
-			assetText.destroy()
-			this.ready()
-		})
+			progressBar.destroy();
+			progressBox.destroy();
+			loadingText.destroy();
+			percentText.destroy();
+			assetText.destroy();
+			this.ready();
+		});
 
-		this.timedEvent = this.time.delayedCall(3000, this.ready, [], this)
+		this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
 		// load assets needed in our game
-		this.load.image('blueButton1', button)
-		this.load.image('blueButton2', button1)
-		this.load.image('phaserLogo', PreloadScreen)
+		this.load.image('blueButton1', button);
+		this.load.image('blueButton2', button1);
+		this.load.image('phaserLogo', PreloadScreen);
 
-		this.load.image('phaserLogo', logo)
-		this.load.image('box', button)
-		this.load.image('checkedBox', button1)
-		this.load.audio('bgMusic', [bgMusic])
+		this.load.image('phaserLogo', logo);
+		this.load.image('box', button);
+		this.load.image('checkedBox', button1);
+		this.load.audio('bgMusic', [bgMusic]);
 	}
 
-	create () {
+	create() {}
+
+	init() {
+		this.readyCount = 0;
 	}
 
-	init () {
-		this.readyCount = 0
-	}
-
-	ready () {
-		this.scene.start('Title')
-		this.readyCount += 1
+	ready() {
+		this.scene.start('Title');
+		this.readyCount += 1;
 		if (this.readyCount === 2) {
-			this.scene.start('Title')
+			this.scene.start('Title');
 		}
 	}
 }
